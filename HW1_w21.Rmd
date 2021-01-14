@@ -1,0 +1,140 @@
+---
+title: "Math 295: Homework 1"
+subtitle: "Introduction to Data Visualisation"
+author: "Your Name Here"  
+date: "Due Thursday, January 21, 2021"
+output: 
+  github_document: 
+    fig_height: 4
+    fig_width: 6
+    toc: true
+    toc_depth: 2
+---
+
+```{r setup, include = FALSE}
+# Don't change this setup chunk. 
+# It sets global defaults and includes the tidyverse packages
+# The option include = FALSE prevents warnings and messages from printing to your report.
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+```
+
+
+# Overview
+
+Using the `diamonds` data set contained in the `ggplot2` package, this homework asks you to examine factors that affect the price of a diamond.  Because the setup chunk above contains the option `echo=TRUE`, whenever you knit your R Markdown file, your document will contain your R commands, the R output and  your narrative text. Submit by pushing to your GitHub repository. You are required to have at least 3 commits. I recommend that the first be after you have added your name to this file above. 
+
+# About the Data Set
+
+
+1) Use R help to learn about the `diamonds` data set.  Answer the following questions:  
+    * How many cases are there in the total data set?  
+    * How many variables are there?  
+    * What are the units used for the `price` variable?  
+    * What are the possible values of the `color` variable? Which is best?  
+
+**Answer:**  
+
+```{r}
+
+```
+
+# Creating the Subset for Analysis
+
+Note: As you should have seen above, the `diamonds` data set is very large so for the rest of the homework you will work with a randomly selected subset of 2000 cases created by the following code. You MUST set `eval=TRUE` in the following code to create the subset. Run this chunk by selecting the green arrow at the top of the chunk.^[The `set.seed()` command initializes a sequence of pseudo random numbers so the sampling is reproducible. That is, I will get the same random numbers as you did when I knit your file.]
+
+```{r, diamonddata, eval=FALSE}
+# Change eval=FALSE to eval=TRUE when you knit this or it won't have any effect
+set.seed(2950000) # Replace the 4 zeroes at the end with your birthday MMDD as in 0526 for May 26
+diamond_sub <- diamonds %>% 
+  filter(carat <= 2.5) %>%
+  sample_n(2000)
+```
+
+# Analysis of the `diamond_sub` dataset  
+
+**Note**: For all of the following, be sure to use appropriate `ggplot2` procedures. Use of other R graphics platforms will not earn credit.  
+
+
+2) Create a scatterplot of diamond price (`y`) versus carat weight (`x`).  Comment briefly on the nature of the relationship.  
+
+**Answer:**  
+
+```{r}
+
+```
+
+
+
+3) Modify your plot in 2) setting the `alpha` transparency value to 1/10. Why is this useful for large datasets?  
+
+**Answer:**  
+
+```{r}
+
+```
+
+
+4) Modify your plot in 2), mapping the `clarity` of the diamond to the color aesthetic of the point. Comment on what this plot says about the relationship between `clarity` and the two other variables?  
+
+**Answer:**  
+
+```{r}
+
+```
+
+
+
+5) Once again, modify your plot in 2) mapping the `clarity` of the diamond to the shape aesthetic of the point. Explain why you get warning messages for this plot.     
+
+**Answer:**  
+
+```{r}
+
+```
+
+
+6) Which of the two plots above do you prefer, the one that maps `clarity` to color or shape?  Justify your choice.  
+
+**Answer:**  
+
+
+
+7) Examine the relationship between `price` and `carat` weight in more detail  by creating one plot for each diamond  `color`.  Describe what you can learn from this analysis.  
+
+**Answer:** 
+
+```{r}
+
+```
+
+
+8) Just for fun, map diamond `color` to the aesthetic color so that the points on each plot are a different color.  
+
+**Answer:** 
+
+```{r}
+
+```
+
+
+
+9) Extend your plot in 7) to obtain a separate scatterplot of the relationship between `price` and `carat` weight for every combination of diamond `cut` and `color`. (Hint: You should have 35 individual scatterplots.)
+
+**Answer:** 
+
+```{r}
+
+```
+
+
+
+10) Challenge: Create a brand new scatterplot of the relationship between `price` and `carat` weight but in this plot use aesthetics to color all points correponding to diamonds with depth (`z`) greater than 3.5mm a different color than those with smaller depths. What is striking about this plot?  
+
+**Answer:**
+
+```{r}
+
+```
+
+### Note
